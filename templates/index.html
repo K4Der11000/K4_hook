@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bootkit Panel - kader11000</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <div class="bg-blue-900 text-yellow-400 text-center py-4 shadow-lg text-3xl font-bold">
+    Bootkit Control Panel by <span class="text-white">kader11000</span>
+  </div>
+
+  <div class="max-w-4xl mx-auto mt-6 space-y-6 p-4">
+
+    <form action="/upload" method="post" enctype="multipart/form-data" class="bg-white p-4 shadow rounded space-y-2">
+      <label class="block font-semibold">Upload External Payload</label>
+      <input type="file" name="payload" class="block w-full border p-2">
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded mt-2">Upload</button>
+    </form>
+
+    <form action="/inject" method="post" class="bg-white p-4 shadow rounded space-y-2">
+      <label class="block font-semibold">Inject Hook into Payload (Enter filename):</label>
+      <input type="text" name="filename" placeholder="example.bin" class="w-full border p-2">
+      <button type="submit" class="bg-yellow-500 text-white px-4 py-2 rounded">Inject</button>
+    </form>
+
+    <form action="/encrypt" method="post" class="bg-white p-4 shadow rounded space-y-2">
+      <label class="block font-semibold">Encrypt Hooked Payload</label>
+      <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded">Encrypt</button>
+    </form>
+
+    <div class="bg-white p-4 shadow rounded space-y-2">
+      <label class="block font-semibold">Download Files</label>
+      <a href="/download/hook_payload.bin" class="text-blue-700 underline">Download Injected Payload</a><br>
+      <a href="/download/hook_payload_encrypted.bin" class="text-blue-700 underline">Download Encrypted Payload</a>
+    </div>
+
+    <form action="/simulate_execution" method="post" class="bg-white p-4 shadow rounded space-y-2">
+      <label class="block font-semibold">Simulate Payload Execution</label>
+      <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Simulate</button>
+      <p class="mt-2 text-gray-700">Devices executed: <strong>{{ device_count }}</strong></p>
+    </form>
+
+  </div>
+</body>
+</html>
